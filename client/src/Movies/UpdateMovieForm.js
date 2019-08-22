@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import axios from 'axios'
-import * as Yup from 'yup'
+
 
 
 const UpdateMovieForm = props => {
@@ -31,7 +30,6 @@ const UpdateMovieForm = props => {
         });
     }
 
-    console.log(values)
     return (
         <>
         { values ?
