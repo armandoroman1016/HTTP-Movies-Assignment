@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
+import { Route } from "react-router-dom";
 import Movie from "./Movies/Movie";
+import FormikUpdates from './Movies/UpdateMovieForm'
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
@@ -18,9 +19,15 @@ const App = () => {
       <Route
         path="/movies/:id"
         render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} />;
+          return <Movie {...props} addToSavedList={addToSavedList} movieList = {MovieList} />;
         }}
       />
+      <Route 
+          path = "/update-movie/:id"
+          render = { props => {
+            return <FormikUpdates {...props} savedList = {savedList}/>
+        }}
+        />
     </>
   );
 };
